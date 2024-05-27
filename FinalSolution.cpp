@@ -12,7 +12,7 @@ const int MAX_COL = 5;
 //FUNCTION PROTOTYPES
 void enterData(double mat[][MAX_COL], const int maxRow);
 void printData(const double mat[][MAX_COL], const int maxRow);
-
+double sumOfNegative(const double mat[][MAX_COL], const int maxRow);
 //MAIN
 int main() {
 	const int MAX_ROW = 3;
@@ -41,6 +41,7 @@ int main() {
 			cout << '\n';
 			break;
 		case 3:
+			cout << "\nThe sum of all negative values is: " << sumOfNegative(matrix, MAX_ROW) << '\n';
 			break;
 		}
 	}
@@ -57,6 +58,7 @@ int main() {
 * @param maxRow The number of rows.
 */
 void enterData(double mat[][MAX_COL], const int maxRow) {
+	assert(maxRow > 0);
 	for (int i = 0; i < maxRow; i++) {
 		for (int j = 0; j < MAX_COL; j++) {
 			double value;
@@ -76,10 +78,30 @@ void enterData(double mat[][MAX_COL], const int maxRow) {
 * @param maxRow The number of rows.
 */
 void printData(const double mat[][MAX_COL], const int maxRow) {
+	assert(maxRow > 0);
 	for (int i = 0; i < maxRow; i++) {
 		for (int j = 0; j < MAX_COL; j++) {
 			cout << mat[i][j] << ' ';
 		}
 		cout << '\n';
 	}
+}
+
+/**
+* Function <code>sumOfNegative</code> Calculates the sum of all negative values.
+* <BR>
+* @param mat The matrix in use.
+* @param maxRow The number of rows.
+* @return sum The sum of all negative values.
+*/
+double sumOfNegative(const double mat[][MAX_COL], const int maxRow) {
+	assert(maxRow > 0);
+	double sum = 0;
+	for (int i = 0; i < maxRow; i++) {
+		for (int j = 0; j < MAX_COL; j++) {
+			if (mat[i][j] < 0) sum += mat[i][j];
+		}
+	}
+	assert(sum <= 0);
+	return sum;
 }
