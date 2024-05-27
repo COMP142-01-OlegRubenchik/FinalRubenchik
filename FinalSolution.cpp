@@ -15,6 +15,11 @@ void printData(const double mat[][MAX_COL], const int maxRow);
 double sumOfNegative(const double mat[][MAX_COL], const int maxRow);
 int numOfValue(const double mat[][MAX_COL], const int maxRow);
 //MAIN
+
+/**
+* Function <code>main</code> The main interface.
+* @return 0
+*/
 int main() {
 	const int MAX_ROW = 3;
 	double matrix[MAX_ROW][MAX_COL];
@@ -69,7 +74,7 @@ void enterData(double mat[][MAX_COL], const int maxRow) {
 			double value;
 			cout << "Enter a value: ";
 			cin >> value;
-			assert(value > -3.5 and value < 1.5);
+			assert(value > -3.5 && value < 1.5);
 			mat[i][j] = value;
 		}
 	}
