@@ -11,6 +11,7 @@ using namespace std;
 const int MAX_COL = 5;
 //FUNCTION PROTOTYPES
 void enterData(double mat[][MAX_COL], const int maxRow);
+void printData(const double mat[][MAX_COL], const int maxRow);
 
 //MAIN
 int main() {
@@ -35,6 +36,9 @@ int main() {
 			enterData(matrix, MAX_ROW);
 			break;
 		case 2:
+			cout << '\n';
+			printData(matrix,MAX_ROW);
+			cout << '\n';
 			break;
 		case 3:
 			break;
@@ -45,6 +49,13 @@ int main() {
 }
 
 //FUNCTIONS
+
+/**
+* Function <code>printData</code> Lets the user to enter every value to the matrix by hand.
+* <BR>
+* @param mat The matrix in use.
+* @param maxRow The number of rows.
+*/
 void enterData(double mat[][MAX_COL], const int maxRow) {
 	for (int i = 0; i < maxRow; i++) {
 		for (int j = 0; j < MAX_COL; j++) {
@@ -56,4 +67,19 @@ void enterData(double mat[][MAX_COL], const int maxRow) {
 		}
 	}
 	cout << "\nDone!\n";
+}
+
+/**
+* Function <code>printData</code> Prints all data from the matrix.
+* <BR>
+* @param mat The matrix in use.
+* @param maxRow The number of rows.
+*/
+void printData(const double mat[][MAX_COL], const int maxRow) {
+	for (int i = 0; i < maxRow; i++) {
+		for (int j = 0; j < MAX_COL; j++) {
+			cout << mat[i][j] << ' ';
+		}
+		cout << '\n';
+	}
 }
