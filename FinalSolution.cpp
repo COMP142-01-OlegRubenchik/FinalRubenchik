@@ -13,6 +13,7 @@ const int MAX_COL = 5;
 void enterData(double mat[][MAX_COL], const int maxRow);
 void printData(const double mat[][MAX_COL], const int maxRow);
 double sumOfNegative(const double mat[][MAX_COL], const int maxRow);
+int numOfValue(const double mat[][MAX_COL], const int maxRow);
 //MAIN
 int main() {
 	const int MAX_ROW = 3;
@@ -23,7 +24,8 @@ int main() {
 		cout << "1) Enter data in matrix (range -3.5 to 1.5)\n";
 		cout << "2) Show data in matrix\n";
 		cout << "3) Sum of all negative numbers (i.e. < 0)\n";
-		cout << "Please enter chice: ";
+		cout << "4) Number of elements with the value -2.5\n";
+		cout << "Please enter choice: ";
 		cin >> choice;
 
 		switch (choice) {
@@ -42,6 +44,9 @@ int main() {
 			break;
 		case 3:
 			cout << "\nThe sum of all negative values is: " << sumOfNegative(matrix, MAX_ROW) << '\n';
+			break;
+		case 4:
+			cout << "The number of elements with the value -2.5 is: " << numOfValue(matrix, MAX_ROW) << '\n';
 			break;
 		}
 	}
@@ -104,4 +109,23 @@ double sumOfNegative(const double mat[][MAX_COL], const int maxRow) {
 	}
 	assert(sum <= 0);
 	return sum;
+}
+
+/**
+* Function <code>numOfValues</code> Counts the elements with the value -2.5.
+* <BR>
+* @param mat The matrix in use.
+* @param maxRow The number of rows.
+* @return num The number of all elements with the value -2.5.
+*/ 
+int numOfValue(const double mat[][MAX_COL], const int maxRow) {
+	assert(maxRow > 0);
+	int num = 0;
+	for (int i = 0; i < maxRow; i++) {
+		for (int j = 0; j < MAX_COL; j++) {
+			if (mat[i][j] == -2.5) num++;
+		}
+	}
+	assert(num >= 0);
+	return num;
 }
