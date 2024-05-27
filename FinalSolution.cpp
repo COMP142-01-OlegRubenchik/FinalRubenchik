@@ -10,11 +10,12 @@ using namespace std;
 //GLOBAL VARIABLES
 const int MAX_COL = 5;
 //FUNCTION PROTOTYPES
-
+void enterData(double mat[][MAX_COL], const int maxRow);
 
 //MAIN
 int main() {
-	double matrix[3][5];
+	const int MAX_ROW = 3;
+	double matrix[MAX_ROW][MAX_COL];
 	int choice = -1;
 	while (choice != 0) {
 		cout << "\n0) Exit\n";
@@ -27,8 +28,11 @@ int main() {
 		switch (choice) {
 		case 0:
 			cout << "\nHave a great day! :)\n";
+			
 			break;
 		case 1:
+			cout << "\nEnter all values...\n";
+			enterData(matrix, MAX_ROW);
 			break;
 		case 2:
 			break;
@@ -41,3 +45,15 @@ int main() {
 }
 
 //FUNCTIONS
+void enterData(double mat[][MAX_COL], const int maxRow) {
+	for (int i = 0; i < maxRow; i++) {
+		for (int j = 0; j < MAX_COL; j++) {
+			double value;
+			cout << "Enter a value: ";
+			cin >> value;
+			assert(value > -3.5 and value < 1.5);
+			mat[i][j] = value;
+		}
+	}
+	cout << "\nDone!\n";
+}
